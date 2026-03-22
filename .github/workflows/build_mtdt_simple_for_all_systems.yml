@@ -1,4 +1,4 @@
-name: Build mtdt softwares for all systems
+name: Build mtdt_simple softwares for all systems
 
 on:
   workflow_dispatch:
@@ -79,8 +79,8 @@ jobs:
         
         OS="${{ matrix.os }}"
         VERSION="${{ matrix.os_short_name }}_${{ matrix.arch }}_onedir"
-        MAIN_FILE="ab_predictor.py"
-        APP_NAME="mtDNA_tool"
+        MAIN_FILE="mtDNA_tool_simple.py"
+        APP_NAME="mtDNA_tool_simple"
 
         ##########################################################
         # הכנת הקבצים הנוספים שצריך להוסיף לתיקיית ההתקנה
@@ -106,7 +106,7 @@ jobs:
         # מוחקים את תיקיית הגרסה
         rm -rf ${APP_NAME}_${VERSION}
 
-        # הכנת הקובץ של y-dna-analyzer_dir עבור onefile
+        # הכנת הקובץ של mtDNA_tool עבור onefile
         # מתקין עושים רק לגרסת ווינדוס האחרונה
         if [ "$OS" = "windows-latest" ]; then
           cp dist/$APP_NAME/$APP_NAME.exe required_files/${APP_NAME}_dir.exe
@@ -121,7 +121,7 @@ jobs:
       if: matrix.os == 'windows-latest'
       shell: bash
       run: |
-        APP_NAME="mtDNA_tool"
+        APP_NAME="mtDNA_tool_simple"
         ARCH="${{ matrix.arch }}"   # הגדרת שם הארכיטקטורה
         
         echo "#define AppName \"$APP_NAME\"" > setup.iss
@@ -183,8 +183,8 @@ jobs:
       
         OS="${{ matrix.os }}"
         VERSION="${{ matrix.os_short_name }}_${{ matrix.arch }}_onefile"
-        MAIN_FILE="ab_predictor.py"
-        APP_NAME="mtDNA_tool"
+        MAIN_FILE="mtDNA_tool_simple.py"
+        APP_NAME="mtDNA_tool_simple"
 
         ##########################################################
         # הכנת הקבצים הנוספים שצריך להוסיף לתיקיית ההתקנה
