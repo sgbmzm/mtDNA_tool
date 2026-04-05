@@ -101,7 +101,7 @@ def on_compare():
     result_text.config(state=tk.NORMAL)
     
     # תיקון וסידור הרצף של המשתמש שהוזן
-    user_sequence = entry.get("1.0", "end-1c").strip()
+    user_sequence = entry.get("1.0", "end-1c").strip().upper()
     user_sequence = re.sub(r'\s+', '', user_sequence)
 
     # טיפול במקרה שמזינים רצף לא נכון
