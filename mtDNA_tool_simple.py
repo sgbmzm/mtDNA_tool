@@ -120,7 +120,7 @@ def compare_aligned_sequences(reference_sequence, user_sequence, reference_name,
 def on_compare():
     result_text.config(state=tk.NORMAL)
     
-    user_sequence = entry.get("1.0", "end-1c").strip()
+    user_sequence = entry.get("1.0", "end-1c").strip().upper()
     user_sequence = re.sub(r'\s+', '', user_sequence)
 
     if not re.match(r'^[AGTCDIN]+$', user_sequence):
